@@ -74,7 +74,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <GenerateManifest>false</GenerateManifest>
-    <TargetName>IDA_x64dbExport32</TargetName>
+    <TargetName>IDA_x64dbExport</TargetName>
     <TargetExt>.dLL</TargetExt>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\build\</IntDir>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>
@@ -90,7 +90,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
     <GenerateManifest>false</GenerateManifest>
-    <TargetName>IDA_x64dbExport32</TargetName>
+    <TargetName>IDA_x64dbExport</TargetName>
     <TargetExt>.dLL</TargetExt>
     <IntDir>$(SolutionDir)$(Platform)\$(Configuration)\build\</IntDir>
     <IgnoreImportLibrary>true</IgnoreImportLibrary>

@@ -758,7 +758,7 @@ BOOL checkBreak()
 // ------------------------------------------------------------------------------------------------
 
 // Show about box
-void idaapi doRepoLink(int button_code, form_actions_t& fa) { open_url("https://github.com/kweatherman/x64dbg_exporter"); }
+void idaapi doRepoLink(int button_code, form_actions_t& fa) { open_url("https://github.com/kweatherman/ida_x64dbgexport_plugin"); }
 void idaapi doX64dbgLink(int button_code, form_actions_t& fa) { open_url("https://x64dbg.com/"); }
 
 // https://x64dbg.com/#start
@@ -846,6 +846,18 @@ plugmod_t* idaapi init()
     return PLUGIN_KEEP;
 }
 
+// To enable the plugin to be ran from a hotkey
+static bool idaapi run(size_t arg)
+{	
+	__try
+	{
+		DoExport();
+	}
+	EXCEPT();
+	WaitBox::hide();
+	return true;
+}
+
 void idaapi term()
 {
 	// Remove action menu
@@ -862,7 +874,7 @@ __declspec(dllexport) plugin_t PLUGIN =
 	PLUGIN_PROC,
 	init,					// Initialize plugin
 	term,					// Terminate plugin
-	nullptr,				// Invoke plugin
+	run,					// Invoke plugin
 	nullptr,				// Long comment about the plugin
 	nullptr,				// Multiline help about the plugin
 	"x64dbExport",			// The preferred short name of the plugin
